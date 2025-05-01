@@ -1,30 +1,24 @@
 import { Inter } from "next/font/google";
-// import { IBM_Plex_Sans } from "next/font/google";
-
-import Navbar from "@/components/navbar/Navbar";
 import "@/styles/globals.css";
+import "@/styles/form.css";
 
-// const IBM = IBM_Plex_Sans({
-//   weight: "400",
-//   subsets: ["latin"],
-//   display: "swap",
-// });
+import Navbar from "@/components/Navbar";
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
 
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
 });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<LayoutProps>) {
   return (
     <html lang="en" className={inter.className}>
       <body>
         <Navbar />
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );

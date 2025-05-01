@@ -3,10 +3,16 @@
   --background: #ffffff;
   --foreground: #171717;
   --primary: #42b3eb;
+  --primary-hover: #1298db;
   --secondary: #fb9d39;
   --accent: #18272e;
   --grey: #e3e8ec;
   --shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  --border: solid rgba(0, 0, 0, 0.1);
+}
+
+html {
+  font-size: 62.5%;
 }
 
 html,
@@ -19,13 +25,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-weight: 300;
+  font-size: 1.6rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0px;
-}
-
-main {
-  margin: 8px;
 }
 
 * {
