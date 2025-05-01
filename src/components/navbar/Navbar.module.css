@@ -1,15 +1,43 @@
 .nav {
   display: flex;
   justify-content: space-between;
+  box-shadow: var(--shadow);
+  /* border-bottom: 1px solid var(--accent); */
 }
 
 .nav a {
   text-decoration: none;
+  transition: color 0.1s ease-out;
+}
+
+.nav a:hover {
+  color: var(--secondary);
 }
 
 /* container styles */
 
 .container {
   display: flex;
-  gap: 10px;
+  gap: 24px;
+  margin-right: 20px;
+}
+
+.container a {
+  font-weight: 300;
+  line-height: 54px;
+}
+
+/* login button */
+
+.loginBtn {
+  background-color: black;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 5px 10px;
+  transition: background-color 0.1s ease-out;
+}
+
+.loginBtn:hover {
+  background-color: var(--accent);
 }
