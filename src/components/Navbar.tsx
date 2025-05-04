@@ -13,7 +13,7 @@ export default function Navbar() {
       <span className={styles.container}>
         <Link href="">Help</Link>
         <Link href="">Bookings</Link>
-        <Link href="">
+        <Link href="/login">
           <button className={styles.loginBtn}>Login</button>
         </Link>
       </span>
