@@ -33,6 +33,7 @@
   font-size: 1.2rem;
   line-height: 1em;
   cursor: pointer;
+  color: var(--foreground);
 }
 
 .input {
@@ -49,6 +50,7 @@
 
 .icon {
   line-height: 0;
+  color: var(--foreground);
 }
 
 .dialog {

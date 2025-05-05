@@ -81,6 +81,10 @@ input {
   font-size: 1.6rem;
 }
 
+label {
+  color: black;
+}
+
 /* utility classes - could potentially put in another css file */
 
 .flex {
