@@ -1,0 +1,62 @@
+.wrapper {
+  position: relative;
+}
+
+/* background */
+.container {
+  background-color: rgb(250, 250, 250);
+}
+
+.container:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0px 1px var(--shadow);
+  border-radius: var(--sm);
+  padding: var(--sm) var(--md);
+  cursor: pointer;
+  transition: background-color 0.1s ease-out;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--xs);
+}
+
+.label {
+  font-size: 1.2rem;
+  line-height: 1em;
+  cursor: pointer;
+}
+
+.input {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: inherit;
+  font-size: 1.6rem;
+}
+
+.input::placeholder {
+  font-size: 1.6rem;
+}
+
+.icon {
+  line-height: 0;
+}
+
+.dialog {
+  position: relative;
+  /* height: 100px;     */
+  /* overflow: hidden; */
+  /* overflow-y: auto; */
+  /* top: 100%; */
+  border: none;
+  z-index: 10;
+}

@@ -20,8 +20,10 @@
     ],
     "baseUrl": "src/",
     "paths": {
+      "@/public/*": ["../public/*"],
       "@/styles/*": ["styles/*"],
-      "@/components/*": ["components/*"]
+      "@/components/ui": ["components/ui/index.ts"],
+      "@/components/form": ["components/form/index.ts"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
