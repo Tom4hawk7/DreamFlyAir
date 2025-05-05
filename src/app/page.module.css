@@ -10,11 +10,18 @@
 }
 
 /* form card styles */
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .formRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 16px;
+  gap: var(--md);
 }
 
 /* media queries */

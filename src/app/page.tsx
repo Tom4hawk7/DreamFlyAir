@@ -24,7 +24,7 @@ export default function Home() {
         <h1 className={styles.heading}>Your Destination Awaits</h1>
         <Card width="75%" margin="auto">
           {/* need to give the form a valid action now */}
-          <Form action="post" className="form">
+          <Form action="post" className={styles.form}>
             <div className={styles.formRow}>
               <Select name="location" label="From" icon={magIcon} placeholder="Current">
                 <Locations />
