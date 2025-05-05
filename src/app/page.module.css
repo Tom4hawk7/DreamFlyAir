@@ -1,0 +1,26 @@
+.heading {
+  font-size: 8rem;
+  text-align: center;
+  margin: 82px 0;
+}
+
+.submit {
+  width: 40px;
+  height: 40px;
+}
+
+/* form card styles */
+.formRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* media queries */
+
+@media (max-width: 1180px) {
+  .formRow {
+    flex-direction: column;
+  }
+}

@@ -1,3 +1,23 @@
 input {
   font-size: 1.6rem;
 }
+
+.form {
+  color: var(--foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: ; */
+  gap: 24px;
+}
+
+@media (max-width: 1180px) {
+  .form-row {
+    flex-direction: column;
+  }
+}

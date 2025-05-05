@@ -1,7 +1,17 @@
-import Hero from "@/components/Hero";
-import Card from "@/components/Card";
-import { CSSProperties } from "react";
 import Form from "next/form";
+import styles from "./page.module.css";
+
+import { CalendarIcon, SewingPinFilledIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
+import { CSSProperties } from "react";
+
+import { Card, Hero } from "@/components/ui";
+import { Increment, Select } from "@/components/form";
+
+import Locations from "./options/Locations";
+import Dates from "./options/Dates";
+
+const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
+const calIcon = <CalendarIcon width="24px" height="24px" />;
 
 const layer: CSSProperties = {
   position: "relative",
@@ -10,39 +20,41 @@ const layer: CSSProperties = {
 export default function Home() {
   return (
     <main>
-      <Hero src="/pietro.jpg">Your Destination Awaits</Hero>
-      <Card variant="hero">
-        <Form action="post">
-          {/* assign values from specialised components to hidden inputs for submitting formData */}
+      <Hero src="/images/pietro.jpg" height="400px">
+        <h1 className={styles.heading}>Your Destination Awaits</h1>
+        <Card width="75%" margin="auto">
+          {/* need to give the form a valid action now */}
+          <Form action="post" className="form">
+            <div className={styles.formRow}>
+              <Select name="location" label="From" icon={magIcon} placeholder="Current">
+                <Locations />
+              </Select>
 
-          <div>
-            {/* this will need to be a <select> option later*/}
-            <label htmlFor="location">From</label>
-            <input id="location" name="location" type="text" />
+              <Select name="destination" label="To" icon={magIcon} placeholder="Where?">
+                <Locations />
+              </Select>
 
-            {/* this will need to be a <select> option later */}
-            <label htmlFor="destination">To</label>
-            <input id="destination" name="destination" type="text" />
+              <Select name="date_range" label="Dates" icon={calIcon} placeholder="When?">
+                <Dates />
+              </Select>
+            </div>
 
-            {/* this will need to be a date range picker later */}
-            <label htmlFor="date_range">Date Range</label>
-            <input id="date_range" name="date_range" type="date" />
-          </div>
-          <div>
-            {/* this will need to be changed later */}
-            <label htmlFor="adults">Adults</label>
-            <input id="adults" name="adults" type="number" />
+            <div className={styles.formRow}>
+              <span className={styles.formRow}>
+                <Increment name="adults" label="Adults" />
+                <Increment name="children" label="Children" />
+                <Increment name="infants" label="Infants" />
+              </span>
 
-            {/* this will need to be changed later */}
-            <label htmlFor="children">Children</label>
-            <input id="children" name="children" type="number" />
-
-            {/* this will need to be changed later */}
-            <label htmlFor="infants">Infants</label>
-            <input id="infants" name="infants" type="number" />
-          </div>
-        </Form>
-      </Card>
+              <span>
+                <button className={styles.submit} type="submit">
+                  <MagnifyingGlassIcon width="24px" height="24px" />
+                </button>
+              </span>
+            </div>
+          </Form>
+        </Card>
+      </Hero>
     </main>
   );
 }

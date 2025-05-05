@@ -1,14 +1,31 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../../public/fonts/Inter-VariableFont_opsz\,wght.woff2");
+}
+
 :root {
-  /* --background: #f4f4f4; */
-  --background: #ffffff;
+  /* colors */
+  --background: #f4f4f4;
   --foreground: #171717;
   --primary: #42b3eb;
   --primary-hover: #1298db;
   --secondary: #fb9d39;
+  --secondary-hover: #f38612;
   --accent: #18272e;
   --grey: #e3e8ec;
-  --shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+
+  /* Spacing */
+  --xs: 4px;
+  --sm: 8px;
+  --md: 16px;
+  --lg: 24px;
+  --lg-x: 32px;
+  --lg-xx: 64px;
+
+  /* Others */
+  --shadow: rgba(0, 0, 0, 0.1);
   --border: solid rgba(0, 0, 0, 0.1);
+  --transition: 0.1s ease-out;
 }
 
 html {
@@ -24,11 +41,15 @@ body {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-weight: 300;
+  margin: 0;
+  height: 100vh;
+
+  font-family: "Inter";
+  font-weight: 400;
   font-size: 1.6rem;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0px;
 }
 
 * {
@@ -44,9 +65,21 @@ a {
 
 button {
   cursor: pointer;
-  font-family: inherit;
-  font-weight: 300;
-  font-size: 16px;
   border: 0;
   border-radius: 5px;
+
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.6rem;
+}
+
+h1 {
+  line-height: 1.2em;
+}
+
+/* utility classes - could potentially put in another css file */
+
+.flex {
+  display: flex;
+  flex-direction: row;
 }
