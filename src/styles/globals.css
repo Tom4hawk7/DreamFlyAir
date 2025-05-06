@@ -91,3 +91,10 @@ label {
   display: flex;
   flex-direction: row;
 }
+
+.heading {
+  font-size: 8rem;
+  color: white;
+  text-align: center;
+  margin: var(--lg-x) 0;
+}

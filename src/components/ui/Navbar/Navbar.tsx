@@ -10,7 +10,7 @@ export default function Navbar() {
       </span>
       <span className={styles.container}>
         <Link href="">Booking</Link>
-        <Link href="">Help</Link>
+        <Link href="/help">Help</Link>
       </span>
     </nav>
   );

@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef } from "react";
+import { useId, useRef } from "react";
 import styles from "./Select.module.css";
 import { DialogContext } from "Context";
+import { FocusEvent } from "react";
 import { read } from "node:fs";
 
 interface InputProps {
@@ -38,7 +39,7 @@ export default function Select({ label, name, icon, placeholder, children }: Inp
     <div className={styles.wrapper}>
       <div className={styles.container} onClick={open}>
         <span className={styles.section}>
-          <label tabIndex={0} className={styles.label} htmlFor={name}>
+          <label className={styles.label} htmlFor={name}>
             {label}
           </label>
           <input
@@ -56,7 +57,7 @@ export default function Select({ label, name, icon, placeholder, children }: Inp
       <span>
         <DialogContext.Provider value={refDialog}>
           <dialog
-            onBlur={() => refDialog.current?.close()}
+            onBlur={() => refDialog.current!.close()}
             className={styles.dialog}
             onClose={close}
             ref={refDialog}

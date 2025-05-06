@@ -1,5 +1,6 @@
 .wrapper {
   position: relative;
+  width: 100%;
 }
 
 /* background */
@@ -16,9 +17,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
   box-shadow: 0 0 0px 1px var(--shadow);
   border-radius: var(--sm);
   padding: var(--sm) var(--md);
+
+  /* min-width: 26; */
+
   cursor: pointer;
   transition: background-color 0.1s ease-out;
 }
@@ -34,6 +39,7 @@
   line-height: 1em;
   cursor: pointer;
   color: var(--foreground);
+  outline: 0;
 }
 
 .input {

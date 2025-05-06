@@ -1,3 +1,9 @@
+.card {
+  padding: var(--md);
+  border-radius: var(--md);
+  width: 75%;
+}
+
 .heading {
   font-size: 8rem;
   text-align: center;
@@ -22,6 +28,7 @@
   flex-direction: row;
   justify-content: space-between;
   gap: var(--md);
+  /* flex-grow: 1; */
 }
 
 /* media queries */
