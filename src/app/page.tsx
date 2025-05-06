@@ -1,9 +1,9 @@
+"use server";
+
 import Form from "next/form";
 import styles from "./page.module.css";
 
 import { CalendarIcon, SewingPinFilledIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { CSSProperties } from "react";
-
 import { Card, Hero } from "@/components/ui";
 import { Increment, Select } from "@/components/form";
 
@@ -13,17 +13,12 @@ import Dates from "./options/Dates";
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
 
-const layer: CSSProperties = {
-  position: "relative",
-};
-
-export default function Home() {
+export default async function Home() {
   return (
     <main>
       <Hero src="/images/pietro.jpg" height="400px">
-        <h1 className={styles.heading}>Your Destination Awaits</h1>
-        <Card width="75%" margin="auto">
-          {/* need to give the form a valid action now */}
+        <h1 className="heading">Your Destination Awaits</h1>
+        <Card className={styles.card}>
           <Form action="post" className={styles.form}>
             <div className={styles.formRow}>
               <Select name="location" label="From" icon={magIcon} placeholder="Current">
