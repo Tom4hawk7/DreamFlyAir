@@ -22,6 +22,7 @@
     "paths": {
       "@/public/*": ["../public/*"],
       "@/styles/*": ["styles/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/components/ui": ["components/ui/index.ts"],
       "@/components/form": ["components/form/index.ts"]
     }

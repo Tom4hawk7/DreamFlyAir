@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/ui";
 
 import "@/styles/globals.css";
+import "@/styles/elements.css";
 
 interface LayoutProps {
   children: React.ReactNode;

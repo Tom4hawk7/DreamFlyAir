@@ -26,6 +26,8 @@
   --shadow: rgba(0, 0, 0, 0.1);
   --border: solid rgba(0, 0, 0, 0.1);
   --transition: 0.1s ease-out;
+
+  interpolate-size: allow-keywords;
 }
 
 html {
@@ -98,3 +100,8 @@ label {
   text-align: center;
   margin: var(--lg-x) 0;
 }
+
+/* .card {
+  background-color: white;
+  margin: auto;
+} */
