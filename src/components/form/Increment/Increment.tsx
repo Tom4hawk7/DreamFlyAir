@@ -1,5 +1,6 @@
 "use client";
 
+import useIncrement from "@/hooks/useIncrement";
 import styles from "./Increment.module.css";
 import { PlusIcon, MinusIcon } from "@radix-ui/react-icons";
 import { useRef } from "react";
@@ -10,10 +11,11 @@ interface IncrementProps {
 }
 
 export default function Increment({ name, label }: IncrementProps) {
-  let ref = useRef<HTMLInputElement>(null);
+  let [ref, increment, decrement] = useIncrement();
+  // let ref = useRef<HTMLInputElement>(null);
 
-  const increment = () => ref.current?.stepUp();
-  const decrement = () => ref.current?.stepDown();
+  // const increment = () => ref.current?.stepUp();
+  // const decrement = () => ref.current?.stepDown();
 
   // will use icons for plus and minus icons later
 
