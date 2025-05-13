@@ -3,10 +3,17 @@
   src: url("../../public/fonts/Inter-VariableFont_opsz\,wght.woff2");
 }
 
+/* if we want to have a dark mode then just invert the last hsl percentage value
+--background: hsl(0, 0%, 4%);
+--foreground: hsl(0, 0%, 91);
+--
+
+*/
+
 :root {
   /* colors */
-  --background: #f4f4f4;
-  --foreground: #171717;
+  --background: hsl(0, 0%, 96%);
+  --foreground: hsl(0, 0%, 9%);
   --primary: #42b3eb;
   --primary-hover: #1298db;
   --secondary: #fb9d39;
@@ -27,6 +34,13 @@
   --border: solid rgba(0, 0, 0, 0.1);
   --transition: 0.1s ease-out;
 
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+
+  --filter-secondary: invert(67%) sepia(93%) saturate(798%) hue-rotate(331deg) brightness(100%)
+    contrast(98%);
+  --filter-white: invert(100%) sepia(0%) saturate(0%) hue-rotate(228deg) brightness(103%)
+    contrast(101%);
   interpolate-size: allow-keywords;
 }
 

@@ -9,7 +9,7 @@
   justify-content: space-between;
   /* flex-grow: ; */
 
-  margin: var(--lg-x);
+  margin: var(--lg-x) 0;
 }
 
 .main section {
@@ -27,7 +27,6 @@
   flex-direction: row;
 
   margin-bottom: var(--md);
-
   border-radius: var(--sm);
   box-shadow: 0 0 0px 1px var(--shadow);
   background-color: white;
