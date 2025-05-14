@@ -16,7 +16,7 @@ details > summary {
 
   background-color: white;
   border-radius: var(--sm);
-  padding: var(--sm);
+  /* padding: var(--sm); */
 
   list-style: none;
   cursor: pointer;
@@ -27,7 +27,7 @@ details > summary {
 
 details[open] > summary {
   border-radius: var(--sm) var(--sm) 0 0;
-  border-bottom: 1px solid var(--shadow);
+  /* border-bottom: 1px solid var(--shadow); */
 }
 
 /* icon */
@@ -49,7 +49,7 @@ details::details-content {
   block-size: 0;
   overflow: hidden;
   font-size: 1.4rem;
-  padding: 0 var(--sm);
+  /* padding: 0 var(--sm); */
 
   /* setting transition for block size as well as content visisbility */
   transition: all 0.1s ease-out allow-discrete;
@@ -57,5 +57,5 @@ details::details-content {
 
 details[open]::details-content {
   block-size: auto;
-  padding: var(--sm);
+  /* padding: var(--sm); */
 }

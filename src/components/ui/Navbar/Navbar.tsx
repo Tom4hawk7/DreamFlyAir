@@ -11,10 +11,10 @@ export default function Navbar() {
       {/* This links are just for testing */}
       <span className={styles.container}>
         <Link href="/booking/flight">Flights</Link>
-        <Link href="">Baggage</Link>
-        <Link href="">Seats</Link>
-        <Link href="/booking/services">Services</Link>
-        <Link href="">Details</Link>
+        <Link href="/booking/baggage">Baggage</Link>
+        <Link href="/booking/seat">Seats</Link>
+        <Link href="/booking/service">Services</Link>
+        <Link href="/booking/detail">Details</Link>
         {/* <Link href="">Payment</Link>
         <Link href="">Pass</Link> */}
       </span>

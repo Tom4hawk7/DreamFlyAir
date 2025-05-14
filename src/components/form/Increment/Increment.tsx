@@ -5,6 +5,12 @@ import styles from "./Increment.module.css";
 import { PlusIcon, MinusIcon } from "@radix-ui/react-icons";
 import { useRef } from "react";
 
+// interface RefObject<T> {
+//   current: T;
+// }
+
+// export const DialogContext = createContext<React.RefObject<HTMLDialogElement | null> | null>(null);
+
 interface IncrementProps {
   name: string;
   label: string;

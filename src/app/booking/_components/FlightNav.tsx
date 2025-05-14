@@ -33,11 +33,11 @@ export default function FlightNav() {
         <Image src="/svg/chair-solid.svg" width="16" height="16" alt="" />
         Seats
       </Link>
-      <Link className={isActive("/booking/services")} href="/booking/services">
+      <Link className={isActive("/booking/service")} href="/booking/service">
         <Image src="/svg/bell-concierge-solid.svg" width="16" height="16" alt="" />
         Services
       </Link>
-      <Link className={isActive("/booking/details")} href="/booking/details">
+      <Link className={isActive("/booking/detail")} href="/booking/detail">
         <Image src="/svg/clipboard-list-solid.svg" width="16" height="16" alt="" />
         Details
       </Link>
