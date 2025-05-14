@@ -1,0 +1,44 @@
+.container {
+  display: grid;
+  grid-template-columns: 75% 10% 10% 5%;
+  align-items: center;
+  /* gri */
+
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* margin: var(--lgs) var(--md); */
+  /* padding: var(--xs); */
+
+  /* border-bottom: 1px solid var(--shadow); */
+  /* border-top: 1px solid var(--shadow); */
+}
+
+.container:first-of-type {
+  border-top: none;
+}
+
+.counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: var(--lg);
+  background-color: var(--primary);
+  color: white;
+
+  width: 24px;
+  height: 24px;
+  transition: all 0.1s ease-out;
+}
+
+.counter:hover {
+  background-color: var(--primary-hover);
+}
+
+.counter:active {
+  background-color: var(--primary);
+}
+
+.tagPrice {
+  text-align: right;
+}

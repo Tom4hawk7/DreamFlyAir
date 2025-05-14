@@ -7,14 +7,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  /* flex-grow: ; */
-
   margin: var(--lg-x) 0;
 }
 
 .main section {
+  background-color: white;
+  padding: var(--md);
+
   min-width: 380px;
   width: 50%;
+
+  border-radius: var(--xs);
 }
 
 /* wait, you could just apply default styles to card */
@@ -24,13 +27,9 @@
 
 .tab {
   display: flex;
-  flex-direction: row;
-
   margin-bottom: var(--md);
   border-radius: var(--sm);
   box-shadow: 0 0 0px 1px var(--shadow);
-  background-color: white;
-  /* overflow: hidden; */
 }
 
 .tab button {
@@ -63,7 +62,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding: 12px;
+  /* padding: 12px; */
 
   background-color: white;
   box-shadow: 0 0 0px 1px var(--shadow);
@@ -72,6 +71,16 @@
 
 .list details {
   border-radius: 0;
+  /* font-size: 1.8; */
+  padding: var(--md);
+}
+
+.list details[open]::details-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--md);
+  margin-top: var(--md);
 }
 
 .item {
