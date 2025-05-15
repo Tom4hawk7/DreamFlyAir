@@ -129,7 +129,7 @@ export default function Baggage() {
               <div className={styles.weightDiv}>
                 <button onClick={() => handleWeightChange("arrivingChildren", index, 1)}>+</button>
                 <span>{child.weight} kg</span>
-                <button onClick={() => handleWeightChange("departingChildren", index, -1)}>-</button>
+                <button onClick={() => handleWeightChange("arrivingChildren", index, -1)}>-</button>
               </div>
             </div>
             <div className={styles.baggagePrice}>${child.weight * 20}</div>
