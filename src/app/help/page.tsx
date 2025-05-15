@@ -12,7 +12,7 @@ export default function Help() {
 
   const kokomoClick = () => {
       if (!isPlaying) {
-        const audio = new Audio('/sounds/kokomo.mp3');
+        const audio = new Audio('/sounds/kokomo.flac');
         audio.play();
         isPlaying = true;
       }
