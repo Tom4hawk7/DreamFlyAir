@@ -6,4 +6,20 @@
   width: 75%;
   padding: var(--md);
   border-radius: var(--sm);
+
+  padding: 20px;
+}
+
+.details {
+  padding: 20px;
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.answer {
+  padding-top: 10px;
+  font-size: 2rem;
 }
