@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./Continue.module.css";
 
 interface ContinueProps {
@@ -5,11 +6,13 @@ interface ContinueProps {
   link?: string;
 }
 
-export default function Continue({ price, link }: ContinueProps) {
+export default function Continue({ price, link = "" }: ContinueProps) {
   return (
     <div className={styles.finalSection}>
       Total: ${price}
-      <button className={styles.continueButton}>Continue</button>
+      <Link href={link}>
+        <button className={styles.continueButton}>Continue</button>
+      </Link>
     </div>
   );
 }
