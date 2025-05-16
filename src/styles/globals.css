@@ -115,6 +115,11 @@ label {
   margin: var(--lg-x) 0;
 }
 
+.formHeading {
+  margin-top: var(--lg);
+  line-height: 2.4em;
+}
+
 /* .card {
   background-color: white;
   margin: auto;

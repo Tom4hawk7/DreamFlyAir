@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  /* gap: var(--md); */
+
+  font-size: 1.6rem;
+
+  /* margin: var(--md) var(--sm) 0; */
+  padding: var(--md) 0;
+  border-top: 1px solid var(--shadow);
+}
+
+.name {
+  min-width: 150px;
+}
+
+.quantity {
+  text-align: left;
+  min-width: 50px;
+}
+
+.price {
+  text-align: right;
+  min-width: 50px;
+}
