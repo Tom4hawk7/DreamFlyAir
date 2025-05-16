@@ -1,0 +1,26 @@
+.finalSection {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: 800;
+  font-size: 24px;
+  border-top: 3px solid #eaeaea;
+  padding-top: 20px;
+}
+
+.continueButton {
+  background: linear-gradient(to right, #184da3, #2970c0);
+  padding: 12px 40px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(58, 134, 255, 0.3);
+  transition: all 0.3s;
+}
+
+.continueButton:hover {
+  background: linear-gradient(to right, rgb(32, 77, 145), #1b4b81);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(58, 134, 255, 0.4);
+}

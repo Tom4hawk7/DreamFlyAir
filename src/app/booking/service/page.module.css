@@ -1,88 +1,24 @@
-/* perhaps this should be a grid display or something */
-/* or perhaps you should look into flex grow */
-
 /* main page */
 
 .main {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   margin: var(--lg-x) 0;
 }
 
-.main section {
+.padder {
   background-color: white;
   padding: var(--md);
 
   min-width: 380px;
-  width: 50%;
+  width: 100%;
 
   border-radius: var(--xs);
 }
 
-/* wait, you could just apply default styles to card */
-/* and just overide them later with custome css */
-
-/* tab */
-
-.tab {
-  display: flex;
-  margin-bottom: var(--md);
-  border-radius: var(--sm);
-  box-shadow: 0 0 0px 1px var(--shadow);
-}
-
-.tab button {
-  width: 100%;
-  margin: auto;
-  background-color: white;
-  border-radius: 0;
-
-  font-weight: 500;
-  padding: var(--sm) var(--md);
-  transition: all 0.1s ease-out;
-}
-
-.tab button:first-child {
-  border-radius: var(--sm) 0 0 var(--sm);
-}
-
-.tab button:last-child {
-  border-radius: 0 var(--sm) var(--sm) 0;
-}
-
-.tab button:hover {
-  color: white;
-  background-color: var(--primary);
-}
-
-/* list */
-
-.list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  /* padding: 12px; */
-
-  background-color: white;
-  box-shadow: 0 0 0px 1px var(--shadow);
-  /* border-radius: var(--xs); */
-}
-
-.list details {
-  border-radius: 0;
-  /* font-size: 1.8; */
-  padding: var(--md);
-}
-
-.list details[open]::details-content {
-  display: flex;
-  flex-direction: column;
-
-  gap: var(--md);
-  margin-top: var(--md);
-}
-
-.item {
-  box-shadow: none;
+.heading {
+  /* margin-top: var(--lg); */
+  /* line-height: 1.2em; */
+  font-size: 2.4rem;
+  margin-bottom: var(--lg);
 }

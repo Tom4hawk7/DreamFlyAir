@@ -1,77 +1,33 @@
 "use client";
 
-import { Card } from "@/components/ui";
-import { MenuItem } from "@/components/form";
-
 import { Item } from "@/types/Item";
 import { ItemContext } from "@/context";
+import ServiceItem from "./_components/service-item/ServiceItem";
 
 import { useState } from "react";
 import styles from "./page.module.css";
-
-// test data
-// const itemList: Item[] = [
-//   {
-//     name: "Wagyu Steak",
-//     quantity: 0,
-//     price: 5,
-//   },
-//   {
-//     name: "10",
-//     quantity: 0,
-//     price: 10,
-//   },
-// ];
+import MenuList from "./_components/menu-tab/MenuTab";
+import Continue from "../_components/Continue";
 
 export default function Services() {
   const [items, setItems] = useState<Item[]>([]);
+  const total = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   return (
     <ItemContext.Provider value={setItems}>
       <section className={styles.main}>
-        <section>
-          <h1>Departing Flight</h1>
+        <section className={styles.padder}>
+          <h1 className={styles.heading}>Departing Flight</h1>
           {items.map((item, i) => (
-            <div key={i} style={{ display: "flex", justifyContent: "space-between", gap: "24px" }}>
-              <p>Name {item.name}</p>
-              <p>Total Price: {item.price * item.quantity}</p>
-              <p>Quantity {item.quantity}</p>
-            </div>
+            <ServiceItem key={i} item={item} />
           ))}
         </section>
 
-        <section>
-          <Card className={styles.tab}>
-            <button type="button">Food</button>
-            <button type="button">Beverages</button>
-            <button type="button">Extras</button>
-          </Card>
-
-          <div className={styles.list}>
-            <details>
-              <summary>Burgers</summary>
-              <MenuItem name="Wagyu steak" price={5} />
-              <MenuItem name="Ham sandwich" price={10} />
-            </details>
-
-            <details>
-              <summary>Fries</summary>
-              <MenuItem name="Thin cut" price={5} />
-              <MenuItem name="Thick cut" price={6} />
-            </details>
-
-            <details>
-              <summary>Confectionary</summary>
-              <p>Chocolate</p>
-            </details>
-
-            <details>
-              <summary>Tasty</summary>
-              <p>Idk</p>
-            </details>
-          </div>
+        <section className={styles.padder}>
+          <MenuList />
         </section>
       </section>
+      <Continue price={total} />
     </ItemContext.Provider>
   );
 }
