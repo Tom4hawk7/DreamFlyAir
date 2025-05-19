@@ -66,7 +66,7 @@ export default function Help() {
             <video className={styles.kokomo} title="Kokomo" autoPlay muted loop>
               <source src="/videos/kokomo.mp4" type="video/mp4"/>
             </video>
-            <p className={styles.answer}>Not yet, we are working on it.</p>
+            <p className={styles.answer}>We do not currently international flights, but we are working on it.</p>
           </details>
           {faq.map((question, index) => {
             return (
