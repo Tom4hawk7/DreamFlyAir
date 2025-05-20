@@ -1,0 +1,23 @@
+.container {
+  box-shadow: 0 0 1px 1px var(--shadow);
+  background-color: white;
+  border-radius: var(--lg);
+  padding: var(--lg);
+}
+
+.upper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 2fr;
+  grid-auto-flow: column;
+}
+
+.priceLabel,
+.price {
+  text-align: right;
+}
+
+.lower {
+  display: flex;
+  justify-content: space-between;
+}

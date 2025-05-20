@@ -101,6 +101,10 @@ label {
   color: black;
 }
 
+main {
+  position: relative;
+}
+
 /* utility classes - could potentially put in another css file */
 
 .flex {
@@ -112,7 +116,7 @@ label {
   font-size: 8rem;
   color: white;
   text-align: center;
-  margin: var(--lg-x) 0;
+  padding: var(--lg-x) 0;
 }
 
 .formHeading {

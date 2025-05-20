@@ -19,7 +19,11 @@ export default function Navbar() {
         <Link href="">Pass</Link> */}
       </span>
       <span className={styles.container}>
-        <Link href="">Booking</Link>
+        <button popoverTarget="findBooking">Booking</button>
+        <div id="findBooking" popover="auto">
+          <p>Test</p>
+        </div>
+        {/* <Link href="">Booking</Link> */}
         <Link href="/help">Help</Link>
       </span>
     </nav>

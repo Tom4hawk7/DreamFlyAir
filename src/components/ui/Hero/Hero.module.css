@@ -1,5 +1,5 @@
 .hero {
   background-size: cover;
   padding: var(--lg-x);
-  overflow: visible;
+  /* overflow: visible; */
 }
