@@ -1,0 +1,121 @@
+.heading {
+  margin: var(--lg-x) 0 var(--sm);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.heading2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.splitSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.details {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  flex-grow: 3;
+
+  padding: 30px;
+  margin: 10px;
+}
+
+.payment {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 10px;
+  flex-grow: 5;
+
+  padding: 30px;
+  margin: 10px;
+}
+
+.detailBreakup {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  border-bottom: 1px solid black;
+
+  padding: 10px;
+}
+
+.detailsItem {
+  display: flex;
+  flex-direction: row;
+}
+
+.detailsItem p {
+  border-top: 0.5px solid black;
+
+  width: 100%;
+
+  padding: 10px;
+}
+
+.detailsItem p:nth-child(2) {
+  text-align: center;
+}
+
+.detailsItem p:nth-child(3) {
+  text-align: right;
+}
+
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 10px;
+  height: 80%;
+}
+
+.paymentDetails {
+  width: 100%;
+}
+
+.paymentDetails input {
+  width: 100%;
+}
+
+.expiryAndCode {
+  display: flex;
+  flex-direction: row;
+}
+
+.expiryAndCode div {
+  width: 100%;
+}
+
+.expiryAndCode input {
+  width: 100%;
+}
+
+.paymentButton {
+    background: linear-gradient(to right, #184da3, #2970c0);
+    padding: 12px 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 0 4px 6px rgba(58, 134, 255, 0.3);
+    transition: all 0.3s;
+    margin-top: 12px;
+}
+
+.paymentButton:hover {
+    background: linear-gradient(to right, rgb(32, 77, 145), #1b4b81);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(58, 134, 255, 0.4);
+}
+
+.paymentButton:disabled {
+    background-color: #ddd;
+    color: #999;
+    cursor: not-allowed;
+}
