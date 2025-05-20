@@ -1,20 +1,23 @@
 "use server";
 
-// Function should probably splite date_range into two parts
-// To facilitate better querying
+// app/actions.ts
+"use server";
+import { neon } from "@neondatabase/serverless";
+const sql = neon(
+  `postgresql://neondb_owner:npg_wyu7Nadq4lRP@ep-shiny-pine-a731yr8u-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require`
+);
 
-// You could also potentially use hidden inputs with more queryable values
-// However this isn't possible with the current component infrastructure
-
-// interface FlightForm {
-//   location: string;
-//   destination: string;
-//   date_range: string;
-//   adults: number;
-//   children: number;
-//   infants: number;
-// }
-
-// async function searchFlights() {
-//   "use server";
-// }
+export async function getData() {
+  // need to limit how many you get
+  const flights = await sql`
+  SELECT 
+    flight_id AS id,
+    source_airport_id AS location,
+    destination_airport_id AS destination,
+    departure_time AS departure,
+    arrival_time AS arrival,
+    plane_type_id AS plane,
+    price AS price
+  FROM flight_details
+  `;
+}

@@ -3,35 +3,89 @@ import FlightNav from "../_components/FlightNav";
 import styles from "./flight.module.css";
 import { useState } from "react";
 
-interface Flight {
-  id: String;
-  startTime: String;
-  finishTime: String;
-  price: number;
+import Flight from "@/types/Flight";
+import { SelectedContext } from "@/context";
+import FlightCard from "./_components/FlightCard";
+import Continue from "../_components/Continue";
+
+const departingFlights: Array<Flight> = [
+  {
+    id: "d1",
+    location: "Sydney",
+    destination: "Nowhere",
+    departure: new Date("2025-05-12"),
+    arrival: new Date("2025-05-13"),
+    price: 299,
+    plane: "dfds",
+  },
+  {
+    id: "d2",
+    location: "Brisbane",
+    destination: "New Zealand",
+    departure: new Date("2025-03-15"),
+    arrival: new Date("2025-03-16"),
+    price: 329,
+    plane: "das",
+  },
+];
+const returningFlights: Array<Flight> = [
+  {
+    id: "r1",
+    location: "Downey",
+    destination: "Uppity",
+    departure: new Date("2025-04-05"),
+    arrival: new Date("2025-04-06"),
+    price: 289,
+    plane: "dfds",
+  },
+  {
+    id: "r2",
+    location: "For",
+    destination: "Noew",
+    departure: new Date("2025-04-04"),
+    arrival: new Date("2025-04-05"),
+    price: 259,
+    plane: "dfds",
+  },
+];
+
+// const testSelected = {
+//   depart: {
+//     id: "r1",
+//     location: "Downey",
+//     destination: "Uppity",
+//     departure: new Date("2025-03-15"),
+//     arrival: new Date("2025-03-16"),
+//     price: 289,
+//     plane: "dfds",
+//   },
+//   return: {
+//     id: "d2",
+//     location: "Brisbane",
+//     destination: "New Zealand",
+//     departure: new Date("2025-05-12"),
+//     arrival: new Date("2025-05-13"),
+//     price: 329,
+//     plane: "das",
+//   },
+// };
+
+interface FlightPageState {
+  depart: Flight | undefined;
+  return: Flight | undefined;
 }
 
 export default function FlightPage() {
-  const [selectedDeparture, setSelectedDeparture] = useState<Flight | null>(null);
-  const [selectedReturn, setSelectedReturn] = useState<Flight | null>(null);
+  const [selected, setSelected] = useState<FlightPageState>({
+    depart: undefined,
+    return: undefined,
+  });
 
-  const handleSelectedDeparture = (flight: Flight) => {
-    setSelectedDeparture(flight);
-  };
-
-  const handleSelectedReturn = (flight: Flight) => {
-    setSelectedReturn(flight);
-  };
-  const departingFlights = [
-    { id: "d1", startTime: "09:00", finishTime: "15:30", price: 299 },
-    { id: "d2", startTime: "13:45", finishTime: "19:20", price: 329 },
-  ];
-  const returningFlights = [
-    { id: "r1", startTime: "14:30", finishTime: "21:00", price: 289 },
-    { id: "r2", startTime: "13:30", finishTime: "21:00", price: 259 },
-  ];
+  const changeDeparture = (flight: Flight) => setSelected({ ...selected, depart: flight });
+  const changeReturn = (flight: Flight) => setSelected({ ...selected, return: flight });
 
   const totalPrice =
-    (selectedDeparture ? selectedDeparture.price : 0) + (selectedReturn ? selectedReturn.price : 0);
+    (selected.depart ? selected.depart.price : 0) + (selected.return ? selected.return.price : 0);
 
   return (
     <div className={styles.pageContainer}>
@@ -39,90 +93,21 @@ export default function FlightPage() {
 
       <section className={styles.flightSelection}>
         <h2 className={styles.heading2}>Departing Flights</h2>
-        {departingFlights.map(flight => {
-          // Calculate flight duration
-          const dummyDate = "2023-01-01";
-          const startDate = new Date(`${dummyDate}T${flight.startTime}:00`);
-          const finishDate = new Date(`${dummyDate}T${flight.finishTime}:00`);
-          const durationMs = finishDate.getTime() - startDate.getTime();
-          const hours = Math.floor(durationMs / (1000 * 60 * 60));
-          const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
-          const duration = `${hours}h ${minutes}m`;
 
-          return (
-            <div
-              key={flight.id}
-              className={`${styles.flightOptions} ${
-                selectedDeparture?.id === flight.id ? styles.selected : ""
-              }`}
-              onClick={() => handleSelectedDeparture(flight)}
-            >
-              <div className={styles.flightTimes}>
-                <div className={styles.timeBadge}>
-                  <span>{flight.startTime}</span>
-                  <span className={styles.arrow}> › </span>
-                  <span>{flight.finishTime}</span>
-                </div>
-                <div className={styles.duration}>{duration}</div>
-              </div>
+        <SelectedContext.Provider value={[selected.depart, changeDeparture]}>
+          {departingFlights.map(flight => (
+            <FlightCard key={flight.id} flight={flight} />
+          ))}
+        </SelectedContext.Provider>
 
-              <div className={styles.flightDetail}>
-                <div className={styles.airline}>
-                  <div className={styles.airlineLogo}>DF</div>
-                  <div className={styles.flightNumber}>DF 123</div>
-                </div>
-              </div>
+        <SelectedContext.Provider value={[selected.return, changeReturn]}>
+          <h2 className={styles.heading2}>Returning Flights</h2>
+          {returningFlights.map(flight => (
+            <FlightCard key={flight.id} flight={flight} />
+          ))}
+        </SelectedContext.Provider>
 
-              <div className={styles.flightPrice}>${flight.price}</div>
-              <button className={styles.selectFlight}>Select Flight</button>
-            </div>
-          );
-        })}
-
-        <h2 className={styles.heading2}>Returning Flights</h2>
-        {returningFlights.map(flight => {
-          // Calculate flight duration
-          const dummyDate = "2023-01-01";
-          const startDate = new Date(`${dummyDate}T${flight.startTime}:00`);
-          const finishDate = new Date(`${dummyDate}T${flight.finishTime}:00`);
-          const durationMs = finishDate.getTime() - startDate.getTime();
-          const hours = Math.floor(durationMs / (1000 * 60 * 60));
-          const minutes = Math.floor((durationMs % (1000 * 60 * 60)) / (1000 * 60));
-          const duration = `${hours}h ${minutes}m`;
-          return (
-            <div
-              key={flight.id}
-              className={`${styles.flightOptions} ${
-                selectedReturn?.id === flight.id ? styles.selected : ""
-              }`}
-              onClick={() => handleSelectedReturn(flight)}
-            >
-              <div className={styles.flightTimes}>
-                <div className={styles.timeBadge}>
-                  <span>{flight.startTime}</span>
-                  <span className={styles.arrow}> › </span>
-                  <span>{flight.finishTime}</span>
-                </div>
-                <div className={styles.duration}>{duration}</div>
-              </div>
-
-              <div className={styles.flightDetail}>
-                <div className={styles.airline}>
-                  <div className={styles.airlineLogo}>DF</div>
-                  <div className={styles.flightNumber}>DF 123</div>
-                </div>
-              </div>
-
-              <div className={styles.flightPrice}>${flight.price}</div>
-              <button className={styles.selectFlight}>Select Flight</button>
-            </div>
-          );
-        })}
-
-        <div className={styles.finalSection}>
-          Total: ${totalPrice}
-          <button className={styles.continueButton}>Continue</button>
-        </div>
+        <Continue price={totalPrice} />
       </section>
     </div>
   );
