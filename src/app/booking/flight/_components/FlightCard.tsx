@@ -11,6 +11,9 @@ interface FlightCardProps {
   flight: Flight;
 }
 
+const format = (date: Date) =>
+  date.toLocaleString("en-GB", { dateStyle: "short", timeStyle: "short", hour12: true });
+
 export default function FlightCard({ flight }: FlightCardProps) {
   const [selected, handleSelected] = use(SelectedContext);
 
@@ -35,9 +38,10 @@ export default function FlightCard({ flight }: FlightCardProps) {
     >
       <div className={styles.flightTimes}>
         <div className={styles.timeBadge}>
-          <span>{flight.departure.toLocaleString("en")}</span>
+          {/* <span>{flight.departure.toLocaleString("en")}</span> */}
+          <span>{format(flight.departure)}</span>
           <span className={styles.arrow}> › </span>
-          <span>{flight.arrival.toLocaleString("en")}</span>
+          <span>{format(flight.arrival)}</span>
         </div>
         <div className={styles.duration}>{duration}</div>
       </div>

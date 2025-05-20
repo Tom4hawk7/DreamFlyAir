@@ -1,6 +1,7 @@
 import Passenger from "@/types/Passenger";
 import styles from "./page.module.css";
 import PassengerCard from "./Passenger";
+import Continue from "../_components/Continue";
 
 // two different testing objects for different scenarios
 const passengerUnkown: Array<Passenger> = [
@@ -20,17 +21,25 @@ const passengersKnown: Array<Passenger> = [
 ];
 
 export default function Details() {
+  const total = 0;
   const DATA = passengerUnkown;
 
   return (
-    <section>
-      <h1 className={styles.heading}>Booking Details</h1>
-      <section className={styles.container}>
-        {DATA.map((passenger, i) => (
-          <PassengerCard key={i} passenger={passenger} num={i} />
-        ))}
+    <>
+      <section className={styles.section}>
+        <div className={styles.container}>
+          <h1 className={styles.heading}>Booking Details</h1>
+          {DATA.map((passenger, i) => (
+            <PassengerCard key={i} passenger={passenger} num={i} />
+          ))}
+        </div>
+        <div>
+          <h1 className={styles.heading}>Contact Information</h1>
+          {/* <label htmlFor=""></label> */}
+          {/* <input type="text" /> */}
+        </div>
       </section>
-      <div></div>
-    </section>
+      <Continue price={total} />
+    </>
   );
 }

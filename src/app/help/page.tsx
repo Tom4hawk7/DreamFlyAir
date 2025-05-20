@@ -56,7 +56,6 @@ const QUESTIONS = [
 export default async function Help() {
   return (
     <main>
-      {/* <Hero src="/images/pietro.jpg" height="400px"> */}
       <Image className="background" src="/images/pietro.jpg" alt="" width={5979} height={3986} />
       <h1 className="heading">Frequently Asked Questions</h1>
       <Card className={styles.container}>
@@ -71,7 +70,6 @@ export default async function Help() {
           );
         })}
       </Card>
-      {/* </Hero> */}
     </main>
   );
 }

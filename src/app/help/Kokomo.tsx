@@ -19,6 +19,9 @@ export default function Kokomo() {
 
       <details className={styles.details} onClick={toggle}>
         <summary className={styles.question}>Can I go to Kokomo?</summary>
+        <video className={styles.kokomo} title="Kokomo" autoPlay muted loop>
+          <source src="/videos/kokomo.mp4" type="video/mp4" />
+        </video>
         <p className={styles.answer}>Not yet, we are working on it.</p>
       </details>
     </>
