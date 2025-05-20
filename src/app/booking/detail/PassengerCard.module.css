@@ -1,18 +1,7 @@
-.heading {
-  margin-top: var(--lg);
-  line-height: 2.4em;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  gap: var(--md);
-}
-
 /* passenger forms */
 
-.passenger {
-  padding: var(--md);
+.container {
+  /* padding: var(--md); */
   background-color: white;
   border-radius: var(--sm);
   /* width: 5px; */
@@ -55,13 +44,15 @@
 /* resetting styles */
 
 .details > summary {
-  padding: 0;
+  /* margin: var(--md); */
+  padding: var(--md);
 }
 
 .details[open] > summary {
-  padding: 0 0 var(--sm);
+  /* padding: 0 0 var(--sm); */
 }
 
 .details[open]::details-content {
-  padding: var(--sm) 0 0;
+  margin: var(--md);
+  /* padding: var(--sm) 0 0; */
 }

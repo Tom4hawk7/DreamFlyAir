@@ -1,74 +1,36 @@
+import Passenger from "@/types/Passenger";
 import styles from "./page.module.css";
+import PassengerCard from "./Passenger";
 
-// const passengerList = []
+// two different testing objects for different scenarios
+const passengerUnkown: Array<Passenger> = [
+  { id: 0, type: "Adult" },
+  { id: 1, type: "Adult" },
+  { id: 2, type: "Child" },
+  { id: 3, type: "Child" },
+  { id: 4, type: "Infant" },
+  { id: 5, type: "Infant" },
+];
+
+const passengersKnown: Array<Passenger> = [
+  { id: 0, type: "Adult", title: "Mr", firstName: "Thomas", lastName: "McGrath" },
+  { id: 1, type: "Child", title: "Mr", firstName: "Sammy", lastName: "Junior" },
+  { id: 2, type: "Infant", title: "Mr" },
+  { id: 3, type: "Infant", title: "Mr" },
+];
 
 export default function Details() {
+  const DATA = passengerUnkown;
+
   return (
     <section>
       <h1 className={styles.heading}>Booking Details</h1>
       <section className={styles.container}>
-        <Passenger heading="Adult  1" />
-        <Passenger heading="Adult  2" />
-        <Passenger heading="Child  1" />
-        <Passenger heading="Adult  2" />
-        <Passenger heading="Adult  1" />
+        {DATA.map((passenger, i) => (
+          <PassengerCard key={i} passenger={passenger} num={i} />
+        ))}
       </section>
-      {/* <div className={styles.passenger}>
-        <details className={styles.details}>
-          <summary>Adult passenger 1</summary>
-          <fieldset>
-            <label htmlFor="title">Title</label>
-            <select name="title" id="title">
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-            </select>
-
-            <label htmlFor="firstName">First Name</label>
-            <input name="firstName" id="firstName" type="text" />
-
-            <label htmlFor="lastName">Last Name</label>
-            <input name="lastName" id="lastName" type="text" />
-
-            <label htmlFor="birthDate">Date of Birth</label>
-            <input name="birthDate" id="birthDate" type="date" />
-          </fieldset>
-        </details>
-      </div> */}
+      <div></div>
     </section>
-  );
-}
-
-function Passenger({ heading }: { heading: string }) {
-  return (
-    <div className={styles.passenger}>
-      <details className={styles.details}>
-        <summary>{heading}</summary>
-
-        <fieldset className={styles.fieldset}>
-          <span>
-            <label htmlFor="title">Title</label>
-            <select name="title" id="title">
-              <option value="Mr">Mr</option>
-              <option value="Mrs">Mrs</option>
-            </select>
-          </span>
-
-          <span>
-            <label htmlFor="firstName">First Name</label>
-            <input name="firstName" id="firstName" type="text" />
-          </span>
-
-          <span>
-            <label htmlFor="lastName">Last Name</label>
-            <input name="lastName" id="lastName" type="text" />
-          </span>
-
-          <span>
-            <label htmlFor="birthDate">Date of Birth</label>
-            <input name="birthDate" id="birthDate" type="date" />
-          </span>
-        </fieldset>
-      </details>
-    </div>
   );
 }
