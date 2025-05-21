@@ -7,6 +7,7 @@ import Flight from "@/types/Flight";
 import { SelectedContext } from "@/context";
 import FlightCard from "./_components/FlightCard";
 import Continue from "../_components/Continue";
+import { useGlobalStore } from "store";
 
 const departingFlights: Array<Flight> = [
   {
@@ -84,8 +85,7 @@ export default function FlightPage() {
   const changeDeparture = (flight: Flight) => setSelected({ ...selected, depart: flight });
   const changeReturn = (flight: Flight) => setSelected({ ...selected, return: flight });
 
-  const totalPrice =
-    (selected.depart ? selected.depart.price : 0) + (selected.return ? selected.return.price : 0);
+  const totalPrice = (selected.depart?.price || 0) + (selected.return?.price || 0);
 
   return (
     <div className={styles.pageContainer}>

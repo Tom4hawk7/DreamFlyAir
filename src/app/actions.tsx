@@ -1,14 +1,11 @@
 "use server";
 
-// app/actions.ts
-"use server";
-import { neon } from "@neondatabase/serverless";
-const sql = neon(
-  `postgresql://neondb_owner:npg_wyu7Nadq4lRP@ep-shiny-pine-a731yr8u-pooler.ap-southeast-2.aws.neon.tech/neondb?sslmode=require`
-);
+import { sql } from "@/database";
+import Flight from "@/types/Flight";
 
-export async function getData() {
-  // need to limit how many you get
+// type FlightRecord = Flight | Record<string, any>
+
+export async function getFeaturedFlights(): Promise<Flight[]> {
   const flights = await sql`
   SELECT 
     flight_id AS id,
@@ -19,5 +16,9 @@ export async function getData() {
     plane_type_id AS plane,
     price AS price
   FROM flight_details
+  ORDER BY RANDOM()
+  LIMIT 6
   `;
+
+  return flights as Flight[];
 }
