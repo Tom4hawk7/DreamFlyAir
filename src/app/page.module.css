@@ -1,7 +1,19 @@
+.card {
+  background-color: white;
+  margin: auto;
+  box-shadow: 0 0 2px 2px var(--shadow);
+
+  padding: var(--md);
+  border-radius: var(--md);
+  margin: 0 var(--lg-xx);
+  min-width: min-content;
+}
+
 .heading {
+  color: white;
   font-size: 8rem;
   text-align: center;
-  margin: 82px 0;
+  padding: var(--lg-xx);
 }
 
 .submit {
@@ -17,11 +29,45 @@
   gap: 16px;
 }
 
-.formRow {
+.formRow,
+.itemRow {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: var(--md);
+  align-items: center;
+}
+
+.formRow {
+  gap: var(--lg);
+}
+
+.itemRow {
+  gap: var(--sm);
+}
+
+.check {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sm);
+}
+
+/* fetured deals */
+
+.featured {
+  position: inherit;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: var(--lg-x);
+}
+
+.featuredContainer {
+  margin: var(--lg-x) var(--lg-xx);
+}
+
+.featuredHeading {
+  /* line-height: 3em; */
+  margin-top: var(--lg-xx);
+  margin-bottom: var(--lg);
 }
 
 /* media queries */

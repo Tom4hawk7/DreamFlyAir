@@ -22,8 +22,11 @@
     "paths": {
       "@/public/*": ["../public/*"],
       "@/styles/*": ["styles/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/components/ui": ["components/ui/index.ts"],
-      "@/components/form": ["components/form/index.ts"]
+      "@/components/form": ["components/form/index.ts"],
+      "@/types/*": ["types/*"],
+      "@/context": ["Context.tsx"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

@@ -1,0 +1,68 @@
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+/* tab */
+
+.tab {
+  display: flex;
+  margin-bottom: var(--md);
+  border-radius: var(--sm);
+  box-shadow: 0 0 0px 1px var(--shadow);
+  /* width: 100%; */
+
+  overflow: hidden;
+}
+
+.tab button {
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 0;
+
+  font-weight: 500;
+  padding: var(--sm) var(--md);
+  transition: all 0.1s ease-out;
+  /* overflow: hidden; */
+}
+
+.tab button:hover {
+  color: white;
+  background-color: var(--primary);
+}
+
+/* list */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md);
+  padding: var(--md);
+
+  background-color: white;
+  box-shadow: 0 0 0px 1px var(--shadow);
+  border-radius: var(--xs);
+}
+
+.list details {
+  border-radius: var(--xs);
+  /* font-size: 1.8; */
+  /* padding: var(--md); */
+}
+
+.list details[open]::details-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--md);
+  margin: 0 var(--md) var(--md);
+}
+
+.list summary {
+  padding: var(--md);
+}
+
+.item {
+  box-shadow: none;
+}

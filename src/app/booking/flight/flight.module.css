@@ -1,0 +1,12 @@
+.heading {
+  margin: var(--lg-x) 0 var(--sm);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.heading2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  font-size: 2rem;
+}

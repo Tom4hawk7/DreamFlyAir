@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md);
+
+  width: 75%;
+  padding: var(--md);
+  border-radius: var(--sm);
+
+  padding: 20px;
+}
+
+.details summary {
+  padding: 20px;
+}
+
+.details[open]::details-content {
+  padding: 0 20px 20px;
+}
+
+.question {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.answer {
+  padding-top: 10px;
+  font-size: 2rem;
+}
+
+.kokomo {
+  width: 100%;
+  height: 50vh;
+}

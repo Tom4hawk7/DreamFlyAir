@@ -1,0 +1,75 @@
+/* details element */
+
+details {
+  border-radius: var(--sm);
+  background-color: white;
+  box-shadow: 0 0 0 1px var(--shadow);
+}
+
+/* header */
+
+details > summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: white;
+  border-radius: var(--sm);
+  /* padding: var(--sm); */
+
+  list-style: none;
+  cursor: pointer;
+
+  border-color: var(--shadow);
+  transition: border-bottom 0.1s ease-out;
+}
+
+details[open] > summary {
+  border-radius: var(--sm) var(--sm) 0 0;
+  /* border-bottom: 1px solid var(--shadow); */
+}
+
+/* icon */
+
+details > summary::after {
+  content: url("/svg/chevron-left.svg");
+  transition: 0.2s;
+  line-height: 0;
+}
+
+details[open] > summary::after {
+  transform: rotate(-90deg);
+}
+
+/* content */
+
+/* may experiment with having default padding here if it can be overridden*/
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+  font-size: 1.4rem;
+  /* padding: 0 var(--sm); */
+
+  /* setting transition for block size as well as content visisbility */
+  transition: all 0.1s ease-out allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+  /* padding: var(--sm); */
+}
+
+/* background image */
+
+.background {
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  left: 0px;
+
+  filter: blur(0.5px) brightness(50%);
+  object-fit: cover;
+  width: 100vw;
+  height: 400px;
+}

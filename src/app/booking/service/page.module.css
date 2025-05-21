@@ -1,0 +1,24 @@
+/* main page */
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  margin: var(--lg-x) 0;
+}
+
+.padder {
+  background-color: white;
+  padding: var(--md);
+
+  min-width: 380px;
+  width: 100%;
+
+  border-radius: var(--xs);
+}
+
+.heading {
+  /* margin-top: var(--lg); */
+  /* line-height: 1.2em; */
+  font-size: 2.4rem;
+  margin-bottom: var(--lg);
+}

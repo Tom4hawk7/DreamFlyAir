@@ -1,0 +1,38 @@
+.pageContainer {
+  width: 100%;
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  /* padding: 20px; */
+}
+
+.bookingLayout {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.seatMapContainer {
+  flex: 4;
+  max-width: 1000px;
+  min-width: 300px;
+}
+
+.sidebarContainer {
+  min-width: 300px;
+  /* width: 100%; */
+  flex: 3;
+
+  position: sticky;
+  top: 20px;
+}
+
+@media (max-width: 768px) {
+  .bookingLayout {
+    flex-direction: column;
+  }
+
+  .sidebarContainer {
+    width: 100%;
+    position: static;
+  }
+}

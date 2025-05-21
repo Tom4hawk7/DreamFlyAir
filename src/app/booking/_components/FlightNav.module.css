@@ -1,0 +1,57 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: var(--md); */
+
+  color: var(--accent);
+  background-color: white;
+  box-shadow: 0 0 0 1px var(--shadow);
+  border-radius: var(--lg) var(--xs);
+
+  overflow: hidden;
+  min-width: fit-content;
+}
+
+.nav > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--md);
+
+  background-color: var(--secondary);
+  color: white;
+
+  transition: transform 0.1s ease-out;
+
+  padding: var(--md);
+  width: 100%;
+}
+
+.nav > a:hover {
+  transform: scale(1.1);
+}
+
+.nav > a img {
+  filter: var(--filter-white);
+}
+
+/* active link styling*/
+
+.active {
+  /* border-radius: 0 var(--lg) 0 0; */
+  border-radius: 0 var(--lg) 0 0;
+}
+
+/* links after active */
+
+.active ~ a {
+  color: var(--black);
+  background-color: var(--white);
+  pointer-events: none;
+}
+
+.active ~ a > img {
+  filter: none;
+}
