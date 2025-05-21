@@ -14,16 +14,41 @@ interface Location {
 
 export default async function Locations() {
   return (
-    <span style={{ position: "absolute", top: "12px", left: "0px", width: "500px" }}>
-      <Card pad="8px" radius="0">
-        {locations.map((location: Location) => (
-          <Option
-            key={location.code}
-            header={`${location.city} - ${location.code}`}
-            caption={location.country}
-          />
-        ))}
-      </Card>
-    </span>
+    <>
+      {locations.map((location: Location) => (
+        <Option
+          key={location.code}
+          header={`${location.city} - ${location.code}`}
+          caption={location.country}
+        />
+      ))}
+    </>
+    // <span style={{ position: "absolute", top: "12px", left: "0px", width: "500px" }}>
+    //   <Card>
+    //     {locations.map((location: Location) => (
+    //       <Option
+    //         key={location.code}
+    //         header={`${location.city} - ${location.code}`}
+    //         caption={location.country}
+    //       />
+    //     ))}
+    //   </Card>
+    // </span>
   );
 }
+
+// export default async function Locations() {
+//   return (
+//     <span style={{ position: "absolute", top: "12px", left: "0px", width: "500px" }}>
+//       <Card>
+//         {locations.map((location: Location) => (
+//           <Option
+//             key={location.code}
+//             header={`${location.city} - ${location.code}`}
+//             caption={location.country}
+//           />
+//         ))}
+//       </Card>
+//     </span>
+//   );
+// }

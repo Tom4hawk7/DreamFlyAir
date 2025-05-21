@@ -4,14 +4,13 @@ import Form from "next/form";
 import styles from "./page.module.css";
 
 import { CalendarIcon, SewingPinFilledIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Increment, Select } from "@/components/form";
+import { Increment, Input, Select } from "@/components/form";
 import { Deal } from "@/components/ui";
 import Image from "next/image";
-import Flight from "@/types/Flight";
 
 import Locations from "./_options/Locations";
-import Dates from "./_options/Dates";
 import { getFeaturedFlights } from "./actions";
+import FlightCalendar from "./_options/FlightCalendar";
 
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
@@ -32,20 +31,20 @@ export default async function Home() {
       />
 
       <div className={styles.card}>
-        {/* <button onClick={getData}>Test</button> */}
         <Form action="post" className={styles.form}>
           <div className={styles.formRow}>
-            <Select name="location" label="From" icon={magIcon} placeholder="Current">
+            {/* <Dates /> */}
+            <Input name="location" label="From" icon={magIcon} placeholder="Current">
               <Locations />
-            </Select>
+            </Input>
 
-            <Select name="destination" label="To" icon={magIcon} placeholder="Where?">
+            <Input name="Destination" label="To" icon={magIcon} placeholder="Where?">
               <Locations />
-            </Select>
+            </Input>
 
-            <Select name="departure" label="Departure Date" icon={calIcon} placeholder="When?">
-              <Dates />
-            </Select>
+            <Input name="date" label="Date" placeholder="When?" icon={calIcon}>
+              <FlightCalendar />
+            </Input>
           </div>
 
           <div className={styles.itemRow}>
