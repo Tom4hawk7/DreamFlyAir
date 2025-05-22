@@ -12,6 +12,7 @@ interface OptionProps {
 
 export default function Option({ header, caption, value = header }: OptionProps) {
   const setValue = use(InputContext);
+
   return (
     <div className={styles.container} onClick={() => setValue(value)}>
       <p className={styles.header}>{header}</p>

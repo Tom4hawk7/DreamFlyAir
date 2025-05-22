@@ -6,15 +6,26 @@ import { InputContext } from "@/context";
 import styles from "./Input.module.css";
 import usePopover from "@/hooks/usePopover";
 
-interface InputProps {
+export interface FormInput {
   name: string;
   label: string;
-  placeholder: string;
   icon?: React.ReactNode;
   children: React.ReactNode;
 }
 
-export default function Input({ name, label, placeholder, icon, children }: InputProps) {
+interface InputProps extends FormInput {
+  placeholder: string;
+  disabled?: boolean;
+}
+
+export default function Input({
+  name,
+  label,
+  placeholder,
+  icon,
+  disabled = false,
+  children,
+}: InputProps) {
   const [inputRef, popoverRef, setValue] = usePopover();
   const id = useId();
 
@@ -30,9 +41,9 @@ export default function Input({ name, label, placeholder, icon, children }: Inpu
           ref={inputRef}
           className={styles.input}
           placeholder={placeholder}
+          disabled={disabled}
           readOnly
         />
-        {/* could supply icon as src  */}
         <span className={styles.icon}>{icon}</span>
       </button>
 

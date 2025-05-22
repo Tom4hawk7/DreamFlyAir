@@ -1,11 +1,23 @@
 import { create } from "zustand";
 
-interface StoreState {
+interface State {
   bookingId: string;
-  setBookingId: (newId: string) => void;
+  hasReturnFlight: boolean;
 }
 
-export const useGlobalStore = create<StoreState>()(set => ({
-  bookingId: "fdsa",
+interface Actions {
+  setBookingId: (newId: string) => void;
+  setHasReturnFlight: (value: boolean) => void;
+}
+
+// interface StoreState {
+//   bookingId: string;
+//   setBookingId: (newId: string) => void;
+// }
+
+export const useGlobalStore = create<State & Actions>()(set => ({
+  bookingId: "",
+  hasReturnFlight: false,
   setBookingId: (newId: string) => set({ bookingId: newId }),
+  setHasReturnFlight: (value: boolean) => set({ hasReturnFlight: value }),
 }));

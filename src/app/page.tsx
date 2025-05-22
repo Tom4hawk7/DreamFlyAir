@@ -4,7 +4,7 @@ import Form from "next/form";
 import styles from "./page.module.css";
 
 import { CalendarIcon, SewingPinFilledIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Increment, Input, Select } from "@/components/form";
+import { Increment, Input } from "@/components/form";
 import { Deal } from "@/components/ui";
 import Image from "next/image";
 
@@ -31,18 +31,17 @@ export default async function Home() {
       />
 
       <div className={styles.card}>
-        <Form action="post" className={styles.form}>
+        <Form action="/booking/flight" className={styles.form}>
           <div className={styles.formRow}>
-            {/* <Dates /> */}
             <Input name="location" label="From" icon={magIcon} placeholder="Current">
               <Locations />
             </Input>
 
-            <Input name="Destination" label="To" icon={magIcon} placeholder="Where?">
+            <Input name="destination" label="To" icon={magIcon} placeholder="Where?">
               <Locations />
             </Input>
 
-            <Input name="date" label="Date" placeholder="When?" icon={calIcon}>
+            <Input name="date" label="Date" placeholder="When?" icon={calIcon} disabled>
               <FlightCalendar />
             </Input>
           </div>

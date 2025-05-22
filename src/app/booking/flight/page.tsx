@@ -1,13 +1,13 @@
 "use client";
-import FlightNav from "../_components/FlightNav";
 import styles from "./flight.module.css";
-import { useState } from "react";
+import { use, useState } from "react";
 
 import Flight from "@/types/Flight";
 import { SelectedContext } from "@/context";
 import FlightCard from "./_components/FlightCard";
 import Continue from "../_components/Continue";
-import { useGlobalStore } from "store";
+import { useSearchParams } from "next/navigation";
+import { GetFlights } from "./server";
 
 const departingFlights: Array<Flight> = [
   {
@@ -50,33 +50,14 @@ const returningFlights: Array<Flight> = [
   },
 ];
 
-// const testSelected = {
-//   depart: {
-//     id: "r1",
-//     location: "Downey",
-//     destination: "Uppity",
-//     departure: new Date("2025-03-15"),
-//     arrival: new Date("2025-03-16"),
-//     price: 289,
-//     plane: "dfds",
-//   },
-//   return: {
-//     id: "d2",
-//     location: "Brisbane",
-//     destination: "New Zealand",
-//     departure: new Date("2025-05-12"),
-//     arrival: new Date("2025-05-13"),
-//     price: 329,
-//     plane: "das",
-//   },
-// };
-
 interface FlightPageState {
   depart: Flight | undefined;
   return: Flight | undefined;
 }
 
 export default function FlightPage() {
+  const searchParams = useSearchParams();
+
   const [selected, setSelected] = useState<FlightPageState>({
     depart: undefined,
     return: undefined,

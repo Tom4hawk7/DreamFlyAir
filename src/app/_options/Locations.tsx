@@ -23,17 +23,6 @@ export default async function Locations() {
         />
       ))}
     </>
-    // <span style={{ position: "absolute", top: "12px", left: "0px", width: "500px" }}>
-    //   <Card>
-    //     {locations.map((location: Location) => (
-    //       <Option
-    //         key={location.code}
-    //         header={`${location.city} - ${location.code}`}
-    //         caption={location.country}
-    //       />
-    //     ))}
-    //   </Card>
-    // </span>
   );
 }
 
