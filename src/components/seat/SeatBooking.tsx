@@ -99,8 +99,18 @@ const SeatBooking: React.FC<SeatBookingProps> = ({ rows, bookedSeats }) => {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.bookingLayout}>
+
         <div className={styles.seatMapContainer}>
-          <SeatSelection seats={seats} onSeatSelect={handleSeatSelection} />
+          <div className={styles.aircraftContainer}>
+            <img
+              src="/images/longer.png"
+              alt="Aircraft Layout"
+              className={styles.aircraftImage}
+            />
+            <div className={styles.seatGridOverlay}>
+              <SeatSelection seats={seats} onSeatSelect={handleSeatSelection} />
+            </div>
+          </div>
         </div>
 
         <div className={styles.sidebarContainer}>

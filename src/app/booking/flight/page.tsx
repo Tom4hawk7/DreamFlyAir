@@ -7,7 +7,7 @@ import Flight from "@/types/Flight";
 import { SelectedContext } from "@/context";
 import FlightCard from "./_components/FlightCard";
 import Continue from "../_components/Continue";
-import { useGlobalStore } from "store";
+import useBookingStore from "stores/bookingStore";
 
 const departingFlights: Array<Flight> = [
   {
@@ -94,18 +94,18 @@ export default function FlightPage() {
       <section className={styles.flightSelection}>
         <h2 className={styles.heading2}>Departing Flights</h2>
 
-        <SelectedContext.Provider value={[selected.depart, changeDeparture]}>
+        {/* <SelectedContext.Provider value={[selected.depart, changeDeparture]}> */}
           {departingFlights.map(flight => (
-            <FlightCard key={flight.id} flight={flight} />
+            <FlightCard key={flight.id} flight={flight} type={"departing"}/>
           ))}
-        </SelectedContext.Provider>
+        {/* </SelectedContext.Provider> */}
 
-        <SelectedContext.Provider value={[selected.return, changeReturn]}>
+        {/* <SelectedContext.Provider value={[selected.return, changeReturn]}> */}
           <h2 className={styles.heading2}>Returning Flights</h2>
           {returningFlights.map(flight => (
-            <FlightCard key={flight.id} flight={flight} />
+            <FlightCard key={flight.id} flight={flight} type={"returning"}/>
           ))}
-        </SelectedContext.Provider>
+        {/* </SelectedContext.Provider> */}
 
         <Continue price={totalPrice} />
       </section>
