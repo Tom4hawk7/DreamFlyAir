@@ -27,7 +27,7 @@
       "@/components/form": ["components/form/index.ts"],
       "@/types/*": ["types/*"],
       "@/context": ["Context.tsx"],
-      "@/store": ["store.ts"],
+      "@/stores/*": ["stores/*"],
       "@/database": ["database.ts"],
       "@/utils/*": ["utils/*"]
     }

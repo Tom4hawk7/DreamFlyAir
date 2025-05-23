@@ -11,6 +11,7 @@ import Image from "next/image";
 import FlightCalendar from "./_options/FlightCalendar";
 import { getFlights } from "./actions";
 import Airports from "./_components/Airports";
+import HomeForm from "./_components/HomeForm";
 
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
@@ -31,7 +32,8 @@ export default async function Home() {
       />
 
       <div className={styles.card}>
-        <Form action="/booking/flight" className={styles.form}>
+        <HomeForm className={styles.form}>
+          {/* <Form action="/booking/flight" className={styles.form}> */}
           <div className={styles.formRow}>
             <Input name="location" label="From" icon={magIcon} placeholder="Current">
               <Airports />
@@ -57,7 +59,9 @@ export default async function Home() {
               <MagnifyingGlassIcon width="24px" height="24px" />
             </button>
           </div>
-        </Form>
+        </HomeForm>
+
+        {/* </Form> */}
       </div>
 
       <section className={styles.featuredContainer}>

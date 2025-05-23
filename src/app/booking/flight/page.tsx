@@ -4,17 +4,12 @@ import Flight from "@/types/Flight";
 import { SelectedContext } from "@/context";
 import FlightCard from "./_components/FlightCard";
 import Continue from "../_components/Continue";
-import { useSearchParams } from "next/navigation";
 import useSWR from "swr";
 
-import styles from "./flight.module.css";
 import flightReviver from "@/utils/flightReviver";
-import { useGlobalStore } from "@/store";
-
-interface FlightPageState {
-  departing: Flight | undefined;
-  returning: Flight | undefined;
-}
+import { useFlightStore } from "stores/flightStore";
+import styles from "./flight.module.css";
+import { useGlobalStore } from "@/stores/globalStore";
 
 const URL = process.env.NEXT_PUBLIC_API_URL + "/booking/flight?";
 
@@ -25,14 +20,23 @@ const fetcher = async (searchParams: URLSearchParams) => {
 };
 
 export default function FlightPage() {
-  const searchParams = useSearchParams();
+  const location = useGlobalStore(state => state.location);
+  const destination = useGlobalStore(state => state.destination);
+  const hasReturnFlight = useGlobalStore(state => state.hasReturnFlight);
+
+  const searchParams = new URLSearchParams({
+    location: location,
+    destination: destination,
+    hasReturnFlight: hasReturnFlight ? "true" : "",
+  });
+
   const { data } = useSWR("flights", () => fetcher(searchParams));
 
-  const getDepart = useGlobalStore(state => state.departFlight);
-  const setDepart = useGlobalStore(state => state.setDepartFlight);
+  const getDepart = useFlightStore(state => state.departFlight);
+  const setDepart = useFlightStore(state => state.setDepartFlight);
 
-  const getReturn = useGlobalStore(state => state.returnFlight);
-  const setReturn = useGlobalStore(state => state.setReturnFlight);
+  const getReturn = useFlightStore(state => state.returnFlight);
+  const setReturn = useFlightStore(state => state.setReturnFlight);
 
   const totalPrice = (getDepart?.price || 0) + (getReturn?.price || 0);
 
@@ -58,7 +62,7 @@ export default function FlightPage() {
           ))}
         </SelectedContext.Provider>
 
-        <Continue price={totalPrice} />
+        <Continue price={totalPrice} link="./baggage" />
       </section>
     </div>
   );

@@ -1,8 +1,7 @@
 import Flight from "@/types/Flight";
 import { SelectedContext } from "@/context";
-import { useEffect, use } from "react";
+import { use } from "react";
 import styles from "./FlightCard.module.css";
-import useBookingStore from "stores/bookingStore";
 
 const MILLISECONDS_IN_SECOND = 1000;
 const SECONDS_IN_MINUTE = 60;
