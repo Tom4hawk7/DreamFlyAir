@@ -28,7 +28,8 @@
       "@/types/*": ["types/*"],
       "@/context": ["Context.tsx"],
       "@/store": ["store.ts"],
-      "@/database": ["database.ts"]
+      "@/database": ["database.ts"],
+      "@/utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

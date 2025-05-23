@@ -1,11 +1,7 @@
-"use server";
-
 import { sql } from "@/database";
 import Flight from "@/types/Flight";
 
-// type FlightRecord = Flight | Record<string, any>
-
-export async function getFeaturedFlights(): Promise<Flight[]> {
+export async function GET() {
   const flights = await sql`
   SELECT 
     flight_id AS id,
@@ -20,5 +16,5 @@ export async function getFeaturedFlights(): Promise<Flight[]> {
   LIMIT 6
   `;
 
-  return flights as Flight[];
+  return Response.json(flights);
 }

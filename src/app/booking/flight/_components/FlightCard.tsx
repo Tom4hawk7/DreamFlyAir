@@ -1,6 +1,6 @@
 import Flight from "@/types/Flight";
-// import { SelectedContext } from "@/context";
-import { useEffect } from "react";
+import { SelectedContext } from "@/context";
+import { useEffect, use } from "react";
 import styles from "./FlightCard.module.css";
 import useBookingStore from "stores/bookingStore";
 
@@ -10,27 +10,17 @@ const MINUTES_IN_HOUR = 60;
 
 interface FlightCardProps {
   flight: Flight;
-  type: 'returning' | 'departing';
 }
 
 const format = (date: Date) =>
-  date.toLocaleString("en-GB", { dateStyle: "short", timeStyle: "short", hour12: true });
+  date.toLocaleString("en-GB", {
+    dateStyle: "short",
+    timeStyle: "short",
+    hour12: true,
+  });
 
-export default function FlightCard({ flight, type }: FlightCardProps) {
-  // const [selected, handleSelected] = use(SelectedContext);
-
-  const { departingFlightId, returningFlightId, setDepartingFlightId, setReturningFlightId } = useBookingStore();
-
-
-  //logging for testing
-  useEffect(() => {
-    console.log("State updated - Departing:", departingFlightId, "Returning:", returningFlightId);
-  }, [departingFlightId, returningFlightId])
-
-
-  //check if card is selected
-  const isSelected = type === 'departing' ? departingFlightId === flight.id : returningFlightId === flight.id;
-
+export default function FlightCard({ flight }: FlightCardProps) {
+  const [selected, handleSelected] = use(SelectedContext);
 
   //time calculation
   const timeDiff = Math.abs(flight.departure.getTime() - flight.arrival.getTime());
@@ -41,29 +31,19 @@ export default function FlightCard({ flight, type }: FlightCardProps) {
   const minutes = Math.floor(
     ((timeDiff % (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR)) /
       MILLISECONDS_IN_SECOND) *
-    SECONDS_IN_MINUTE
+      SECONDS_IN_MINUTE
   );
 
   const duration = `${hours}h ${minutes}m`;
 
-  //handle clicking
-  const handleFlightSelect = (flightId: string, type: 'returning' | 'departing') => {
-    if (type === 'departing') {
-      setDepartingFlightId(flightId);
-    } else {
-      setReturningFlightId(flightId);
-    }
-  }
-
   return (
     <div
       key={flight.id}
-      className={`${styles.flightOptions} ${isSelected ? styles.selected : ""}`}
-      onClick={() => handleFlightSelect(flight.id, type)}
+      className={`${styles.flightOptions} ${selected === flight ? styles.selected : ""}`}
+      onClick={() => handleSelected(flight)}
     >
       <div className={styles.flightTimes}>
         <div className={styles.timeBadge}>
-          {/* <span>{flight.departure.toLocaleString("en")}</span> */}
           <span>{format(flight.departure)}</span>
           <span className={styles.arrow}> › </span>
           <span>{format(flight.arrival)}</span>

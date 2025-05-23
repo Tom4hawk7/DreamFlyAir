@@ -18,12 +18,6 @@ interface IncrementProps {
 
 export default function Increment({ name, label }: IncrementProps) {
   let [ref, increment, decrement] = useIncrement();
-  // let ref = useRef<HTMLInputElement>(null);
-
-  // const increment = () => ref.current?.stepUp();
-  // const decrement = () => ref.current?.stepDown();
-
-  // will use icons for plus and minus icons later
 
   return (
     <div className={styles.wrapper}>

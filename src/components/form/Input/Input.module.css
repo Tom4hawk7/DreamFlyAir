@@ -6,7 +6,6 @@
 
   position: relative;
   anchor-name: --popover;
-  /* flex: 1; */
   width: 100%;
 
   box-shadow: 0 0 0 1px var(--shadow);
@@ -25,6 +24,7 @@
 
 .input {
   font-size: 1.6rem;
+  padding-left: 0;
   border: none;
   outline: none;
   pointer-events: none;
@@ -46,8 +46,9 @@
   left: anchor(left);
   margin-block-start: var(--sm);
 
-  /* width: max-content; */
-  width: 200px;
+  width: max-content;
+  min-width: 200px;
+  max-height: 300px;
 
   border: 0;
   box-shadow: 0 0 0 1px var(--shadow);

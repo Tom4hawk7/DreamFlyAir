@@ -4,19 +4,19 @@ import Form from "next/form";
 import styles from "./page.module.css";
 
 import { CalendarIcon, SewingPinFilledIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { Increment, Input, Select } from "@/components/form";
+import { Increment, Input } from "@/components/form";
 import { Deal } from "@/components/ui";
 import Image from "next/image";
 
-import Locations from "./_options/Locations";
-import { getFeaturedFlights } from "./actions";
 import FlightCalendar from "./_options/FlightCalendar";
+import { getFlights } from "./actions";
+import Airports from "./_components/Airports";
 
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
 
 export default async function Home() {
-  const flights = await getFeaturedFlights();
+  const flights = await getFlights();
 
   return (
     <main className={styles.main}>
@@ -31,18 +31,17 @@ export default async function Home() {
       />
 
       <div className={styles.card}>
-        <Form action="post" className={styles.form}>
+        <Form action="/booking/flight" className={styles.form}>
           <div className={styles.formRow}>
-            {/* <Dates /> */}
             <Input name="location" label="From" icon={magIcon} placeholder="Current">
-              <Locations />
+              <Airports />
             </Input>
 
-            <Input name="Destination" label="To" icon={magIcon} placeholder="Where?">
-              <Locations />
+            <Input name="destination" label="To" icon={magIcon} placeholder="Where?">
+              <Airports />
             </Input>
 
-            <Input name="date" label="Date" placeholder="When?" icon={calIcon}>
+            <Input name="date" label="Date" placeholder="When?" icon={calIcon} disabled>
               <FlightCalendar />
             </Input>
           </div>
