@@ -18,15 +18,8 @@ interface InputProps extends FormInput {
   disabled?: boolean;
 }
 
-export default function Input({
-  name,
-  label,
-  placeholder,
-  icon,
-  disabled = false,
-  children,
-}: InputProps) {
-  const [inputRef, popoverRef, setValue] = usePopover();
+export default function Input({ name, label, placeholder, icon, children }: InputProps) {
+  const [textRef, inputRef, popoverRef, setValue] = usePopover();
   const id = useId();
 
   return (
@@ -38,12 +31,13 @@ export default function Input({
         <input
           id={name}
           name={name}
-          ref={inputRef}
+          ref={textRef}
           className={styles.input}
           placeholder={placeholder}
-          disabled={disabled}
+          disabled
           readOnly
         />
+        <input type="hidden" ref={inputRef} name={name} />
         <span className={styles.icon}>{icon}</span>
       </button>
 
@@ -55,3 +49,41 @@ export default function Input({
     </>
   );
 }
+
+// export default function Input({
+//   name,
+//   label,
+//   placeholder,
+//   icon,
+//   disabled = false,
+//   children,
+// }: InputProps) {
+//   const [inputRef, popoverRef, setValue] = usePopover();
+//   const id = useId();
+
+//   return (
+//     <>
+//       <button className={styles.container} type="button" popoverTarget={id}>
+//         <label htmlFor={name} className={styles.label}>
+//           {label}
+//         </label>
+//         <input
+//           id={name}
+//           name={name}
+//           ref={inputRef}
+//           className={styles.input}
+//           placeholder={placeholder}
+//           disabled={disabled}
+//           readOnly
+//         />
+//         <span className={styles.icon}>{icon}</span>
+//       </button>
+
+//       <InputContext value={setValue}>
+//         <div id={id} ref={popoverRef} className={styles.content} popover="auto">
+//           {children}
+//         </div>
+//       </InputContext>
+//     </>
+//   );
+// }

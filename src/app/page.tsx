@@ -8,15 +8,15 @@ import { Increment, Input } from "@/components/form";
 import { Deal } from "@/components/ui";
 import Image from "next/image";
 
-import Locations from "./_options/Locations";
-import { getFeaturedFlights } from "./actions";
 import FlightCalendar from "./_options/FlightCalendar";
+import { getFlights } from "./actions";
+import Airports from "./_components/Airports";
 
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
 
 export default async function Home() {
-  const flights = await getFeaturedFlights();
+  const flights = await getFlights();
 
   return (
     <main className={styles.main}>
@@ -34,11 +34,11 @@ export default async function Home() {
         <Form action="/booking/flight" className={styles.form}>
           <div className={styles.formRow}>
             <Input name="location" label="From" icon={magIcon} placeholder="Current">
-              <Locations />
+              <Airports />
             </Input>
 
             <Input name="destination" label="To" icon={magIcon} placeholder="Where?">
-              <Locations />
+              <Airports />
             </Input>
 
             <Input name="date" label="Date" placeholder="When?" icon={calIcon} disabled>
