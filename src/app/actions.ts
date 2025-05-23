@@ -15,15 +15,3 @@ export async function getAirports(): Promise<Array<Airport>> {
   const data = await fetch(path.join(process.env.API_URL!, "airport"), { cache: "force-cache" });
   return await data.json();
 }
-
-// async function getLocations() {
-//     const data
-// }
-
-// const getLocations = async () => {};
-
-// interface Location {
-//   city: string;
-//   country: string;
-//   code: string;
-// }
