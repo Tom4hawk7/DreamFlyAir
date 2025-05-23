@@ -7,6 +7,7 @@ import BaggageCard from "./_components/BaggageCard";
 import { useState } from "react";
 import Continue from "../_components/Continue";
 import styles from "./baggage.module.css";
+import { useSearchParams } from "next/navigation";
 
 const BAGGAGE_ITEMS: Array<BaggageItem> = [
   { id: 1, type: "adult", departure: "outbound", weight: 0, price: 0 },
