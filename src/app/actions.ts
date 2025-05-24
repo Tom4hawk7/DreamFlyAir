@@ -12,6 +12,7 @@ export async function getFlights(): Promise<Array<Flight>> {
 }
 
 export async function getAirports(): Promise<Array<Airport>> {
-  const data = await fetch(path.join(process.env.API_URL!, "airport"), { cache: "force-cache" });
+  const url = `${process.env.API_URL}/airport`;
+  const data = await fetch(url, { cache: "force-cache" });
   return await data.json();
 }

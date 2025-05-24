@@ -7,10 +7,33 @@ interface State {
   infantPassengers: Passenger[] | undefined;
 }
 
-interface Actions {}
+interface Actions {
+  setAdultPassenger: (passenger: Passenger) => void;
+  setChildPassenger: (passenger: Passenger) => void;
+  setInfantPassenger: (passenger: Passenger) => void;
+}
 
 export const usePassengerStore = create<State & Actions>()(set => ({
-  adultPassengers: undefined,
-  childPassengers: undefined,
-  infantPassengers: undefined,
+  adultPassengers: [],
+  childPassengers: [],
+  infantPassengers: [],
+
+  setAdultPassenger: (passenger) => set((state) => ({
+    adultPassengers: [...(state.adultPassengers || []), passenger]
+  })),
+  
+  setChildPassenger: (passenger) => set((state) => ({
+    childPassengers: [...(state.childPassengers || []), passenger]
+  })),
+  
+  setInfantPassenger: (passenger) => set((state) => ({
+    infantPassengers: [...(state.infantPassengers || []), passenger]
+  })),
+
+  resetPassengers: () => set({
+    adultPassengers: [],
+    childPassengers: [],
+    infantPassengers: []
+  })
+
 }));
