@@ -21,7 +21,9 @@ export default function HomeForm({ children, className }: FormProps) {
     setDetails(
       formData.get("location") as string,
       formData.get("destination") as string,
-      Boolean(formData.get("hasReturnFlight"))
+      Boolean(formData.get("hasReturnFlight")),
+      formData.get("startDate") as string,
+      formData.get("endDate") as string
     );
 
     // set empty passenger arrays
