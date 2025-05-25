@@ -2,15 +2,13 @@ import Passenger from "@/types/Passenger";
 import { create } from "zustand";
 
 interface State {
-  adultPassengers: Passenger[] | undefined;
-  childPassengers: Passenger[] | undefined;
-  infantPassengers: Passenger[] | undefined;
+  adultPassengers: Passenger[] | undefined[] | undefined;
+  childPassengers: Passenger[] | undefined[] | undefined;
+  infantPassengers: Passenger[] | undefined[] | undefined;
 }
 
 interface Actions {
-  setAdultPassenger: (passenger: Passenger) => void;
-  setChildPassenger: (passenger: Passenger) => void;
-  setInfantPassenger: (passenger: Passenger) => void;
+  setPassengers: (adult: Passenger[], children: Passenger[], infant: Passenger[]) => void;
 }
 
 export const usePassengerStore = create<State & Actions>()(set => ({
@@ -35,5 +33,4 @@ export const usePassengerStore = create<State & Actions>()(set => ({
     childPassengers: [],
     infantPassengers: []
   })
-
 }));

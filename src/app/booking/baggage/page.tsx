@@ -7,7 +7,10 @@ import BaggageCard from "./_components/BaggageCard";
 import { useState } from "react";
 import Continue from "../_components/Continue";
 import styles from "./baggage.module.css";
-import { useSearchParams } from "next/navigation";
+import { usePassengerStore } from "@/stores/passengerStore";
+import { shallow } from "zustand/shallow";
+import Passenger from "@/types/Passenger";
+import { useShallow } from "zustand/shallow";
 
 const BAGGAGE_ITEMS: Array<BaggageItem> = [
   { id: 1, type: "adult", departure: "outbound", weight: 0, price: 0 },
@@ -18,8 +21,18 @@ const BAGGAGE_ITEMS: Array<BaggageItem> = [
   { id: 3, type: "infant", departure: "return", weight: 0, price: 0 },
 ];
 
-export default function Baggage() {
+export default function BaggagePage() {
   const [baggage, setBaggage] = useState<Array<BaggageItem>>(BAGGAGE_ITEMS);
+
+  const { adultPassengers, childPassengers, infantPassengers } = usePassengerStore(
+    useShallow(state => ({
+      adultPassengers: state.adultPassengers,
+      childPassengers: state.childPassengers,
+      infantPassengers: state.infantPassengers,
+    }))
+  );
+
+  // }), shallow<Passenger>())
 
   const departing = baggage.filter(item => item.departure === "outbound");
   const returning = baggage.filter(item => item.departure === "return");
