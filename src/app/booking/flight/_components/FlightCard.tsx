@@ -24,16 +24,22 @@ export default function FlightCard({ flight }: FlightCardProps) {
   //time calculation
   const timeDiff = Math.abs(flight.departure.getTime() - flight.arrival.getTime());
 
-  const hours = Math.floor(
-    timeDiff / (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR)
-  );
-  const minutes = Math.floor(
-    ((timeDiff % (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR)) /
-      MILLISECONDS_IN_SECOND) *
-      SECONDS_IN_MINUTE
-  );
+  // const hours = Math.floor(
+  //   timeDiff / (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR)
+  // );
+  // const minutes = Math.floor(
+  //   ((timeDiff % (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE * MINUTES_IN_HOUR)) /
+  //     MILLISECONDS_IN_SECOND) *
+  //     SECONDS_IN_MINUTE
+  // );
+
+  const totalMin = Math.floor(timeDiff / (MILLISECONDS_IN_SECOND * SECONDS_IN_MINUTE));
+  const hours = Math.floor(totalMin / MINUTES_IN_HOUR);
+  const minutes = totalMin % MINUTES_IN_HOUR;
 
   const duration = `${hours}h ${minutes}m`;
+
+  const flightCode = flight.id.split("-")[0];
 
   return (
     <div
@@ -52,8 +58,8 @@ export default function FlightCard({ flight }: FlightCardProps) {
 
       <div className={styles.flightDetail}>
         <div className={styles.airline}>
-          <div className={styles.airlineLogo}>DF</div>
-          <div className={styles.flightNumber}>DF 123</div>
+          <div className={styles.airlineLogo}>FD</div>
+          <div className={styles.flightNumber}>{flightCode}</div>
         </div>
       </div>
 
