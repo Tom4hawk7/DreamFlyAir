@@ -47,8 +47,8 @@
   margin-block-start: var(--sm);
 
   width: max-content;
-  min-width: 200px;
-  max-height: 300px;
+  min-width: 325px;
+  max-height: 425px;
 
   border: 0;
   box-shadow: 0 0 0 1px var(--shadow);

@@ -6,6 +6,13 @@ export type BaggageItem = {
   price: number;
 };
 
+export type Baggage = {
+  weight: number;
+  price: number;
+};
+
+export type BaggageType = "adult" | "infant" | "child";
+
 export enum BaggageRate {
   adult = 20,
   child = 10,

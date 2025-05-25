@@ -50,9 +50,9 @@ export default async function Home() {
 
           <div className={styles.itemRow}>
             <span className={styles.itemRow}>
-              <Increment name="adults" label="Adults" />
+              <Increment name="adult" label="Adults" />
               <Increment name="children" label="Children" />
-              <Increment name="infants" label="Infants" />
+              <Increment name="infant" label="Infants" />
             </span>
 
             <button className={styles.submit} type="submit">

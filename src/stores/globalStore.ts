@@ -2,7 +2,6 @@ import { create } from "zustand";
 
 interface State {
   bookingId: string;
-
   location: string;
   destination: string;
   hasReturnFlight: boolean;
