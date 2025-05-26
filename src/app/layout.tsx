@@ -10,6 +10,9 @@ interface LayoutProps {
 export default function RootLayout({ children }: Readonly<LayoutProps>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icons/logo.ico" sizes="any" />
+      </head>
       <body>
         <Navbar />
         {children}

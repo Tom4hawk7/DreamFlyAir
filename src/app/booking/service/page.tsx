@@ -18,15 +18,15 @@ export default function Services() {
       <section className={styles.main}>
         <section className={styles.padder}>
           <h1 className={styles.heading}>Departing Flight</h1>
-          <ItemContext.Provider value={setItems}>
-            {items.map((item, i) => (
-              <ServiceItem key={i} item={item} />
-            ))}
-          </ItemContext.Provider>
+          {items.map((item, i) => (
+            <ServiceItem key={i} item={item} />
+          ))}
         </section>
 
         <section className={styles.padder}>
-          <MenuList />
+          <ItemContext.Provider value={setItems}>
+            <MenuList />
+          </ItemContext.Provider>
         </section>
       </section>
       <Continue price={total} link="./detail" />
