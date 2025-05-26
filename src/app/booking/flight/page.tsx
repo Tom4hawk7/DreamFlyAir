@@ -11,14 +11,15 @@ import { useFlightStore } from "stores/flightStore";
 import styles from "./flight.module.css";
 import { useGlobalStore } from "@/stores/globalStore";
 import { useShallow } from "zustand/shallow";
+import { fetcher } from "./actions";
 
-const URL = process.env.NEXT_PUBLIC_API_URL + "/booking/flight?";
+// const fetcher = async (searchParams: URLSearchParams) => {
+//   const URL = `https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/booking/flight?`;
 
-const fetcher = async (searchParams: URLSearchParams) => {
-  const response = await fetch(URL + searchParams);
-  const data = await response.text();
-  return await JSON.parse(data, flightReviver);
-};
+//   const response = await fetch(URL + searchParams);
+//   const data = await response.text();
+//   return await JSON.parse(data, flightReviver);
+// };
 
 export default function FlightPage() {
   const details = useGlobalStore(

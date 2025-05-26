@@ -5,14 +5,16 @@ import Flight from "@/types/Flight";
 import Airport from "@/types/Airport";
 import path from "path";
 
+const URL = "http://" + process.env.VERCEL_URL + "/api";
+
 export async function getFlights(): Promise<Array<Flight>> {
-  const data = await fetch(process.env.API_URL!, { cache: "force-cache" });
+  const data = await fetch(URL, { cache: "force-cache" });
   const text = await data.text();
+
   return await JSON.parse(text, flightReviver);
 }
 
 export async function getAirports(): Promise<Array<Airport>> {
-  const url = `${process.env.API_URL}/airport`;
-  const data = await fetch(url, { cache: "force-cache" });
+  const data = await fetch(URL + "/airport", { cache: "force-cache" });
   return await data.json();
 }
