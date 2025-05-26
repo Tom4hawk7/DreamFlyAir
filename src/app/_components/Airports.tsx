@@ -1,7 +1,17 @@
 "use server";
 
 import { Option } from "@/components/form";
-import { getAirports } from "app/actions";
+import { sql } from "@/database";
+import Airport from "@/types/Airport";
+
+async function getAirports() {
+  const airports = await sql`
+      SELECT airport_id AS id, city, country
+      FROM Airports
+      WHERE country = 'Australia'`;
+
+  return airports as Airport[];
+}
 
 export default async function Airports() {
   const airports = await getAirports();

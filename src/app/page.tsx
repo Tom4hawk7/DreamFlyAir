@@ -10,6 +10,7 @@ import Image from "next/image";
 import FlightCalendar from "./_options/FlightCalendar";
 // import { getFlights } from "./actions";
 import Airports from "./_components/Airports";
+import flightReviver from "@/utils/flightReviver";
 import HomeForm from "./_components/HomeForm";
 import Flight from "@/types/Flight";
 import { sql } from "@/database";
@@ -17,9 +18,7 @@ import { sql } from "@/database";
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
 
-// const URL = "http://" + process.env.VERCEL_URL + "/api";
-
-async function getFlights(): Promise<Array<Flight>> {
+export async function getFlights(): Promise<Array<Flight>> {
   const flights = await sql`
   SELECT 
     flight_id AS id,
