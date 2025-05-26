@@ -18,7 +18,7 @@ import { sql } from "@/database";
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
 
-export async function getFlights(): Promise<Array<Flight>> {
+async function getFlights(): Promise<Array<Flight>> {
   const flights = await sql`
   SELECT 
     flight_id AS id,
