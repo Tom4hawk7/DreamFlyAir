@@ -13,7 +13,6 @@ interface Location {
 }
 
 export default async function Locations() {
-  const airports = await getAirports();
   return (
     <>
       {locations.map((location: Location) => (

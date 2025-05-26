@@ -10,7 +10,6 @@ import Image from "next/image";
 import FlightCalendar from "./_options/FlightCalendar";
 // import { getFlights } from "./actions";
 import Airports from "./_components/Airports";
-import flightReviver from "@/utils/flightReviver";
 import HomeForm from "./_components/HomeForm";
 import Flight from "@/types/Flight";
 import { sql } from "@/database";
