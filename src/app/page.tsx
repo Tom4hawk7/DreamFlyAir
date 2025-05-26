@@ -20,7 +20,7 @@ const calIcon = <CalendarIcon width="24px" height="24px" />;
 
 // const URL = "http://" + process.env.VERCEL_URL + "/api";
 
-export async function getFlights(): Promise<Array<Flight>> {
+async function getFlights(): Promise<Array<Flight>> {
   const flights = await sql`
   SELECT 
     flight_id AS id,
