@@ -8,12 +8,35 @@ import { Deal } from "@/components/ui";
 import Image from "next/image";
 
 import FlightCalendar from "./_options/FlightCalendar";
-import { getFlights } from "./actions";
+// import { getFlights } from "./actions";
 import Airports from "./_components/Airports";
+import flightReviver from "@/utils/flightReviver";
 import HomeForm from "./_components/HomeForm";
+import Flight from "@/types/Flight";
+import { sql } from "@/database";
 
 const magIcon = <SewingPinFilledIcon width="24px" height="24px" />;
 const calIcon = <CalendarIcon width="24px" height="24px" />;
+
+// const URL = "http://" + process.env.VERCEL_URL + "/api";
+
+export async function getFlights(): Promise<Array<Flight>> {
+  const flights = await sql`
+  SELECT 
+    flight_id AS id,
+    source_airport_id AS location,
+    destination_airport_id AS destination,
+    departure_time AS departure,
+    arrival_time AS arrival,
+    plane_type_id AS plane,
+    price AS price
+  FROM flight_details
+  ORDER BY RANDOM()
+  LIMIT 6
+  `;
+
+  return flights as Flight[];
+}
 
 export default async function Home() {
   const flights = await getFlights();
